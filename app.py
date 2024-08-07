@@ -4,10 +4,11 @@ import numpy as np
 import pickle
 
 # Load the model
-clf = pickle.load(open("employeeattrition.pkl.pkl","rb"))
+clf = pickle.load(open("case_study_emp.pkl","rb"))
 
 def predict(data):
-	return clf.predict(data)
+    clf = pickle.load(open("case_study_emp.pkl","rb"))
+    return clf.predict(data)
 
 
 st.title("Employee Attrition Rate Project using Machine Learning")
@@ -33,6 +34,6 @@ with col2:
 st.text('')
 if st.button("Predict Performance Rate"):
     result = clf.predict(
-        np.array([[el,tos,top,gr,gr1,1,1,1,1,1,0]]))
+        np.array([[el,tos,top,gr,gr1,1,1,1,1,1]]))
     st.text(result[0])
-st.markdown("Developed by Rex")
+st.markdown("Developed by Sagar Chaudhari in NIELT")
